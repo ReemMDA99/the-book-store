@@ -12,7 +12,14 @@ const resolvers = {
 
 			return userData;
 		},
-		
+		users: async () => {
+			const users = User.find().sort({ createdAt: -1 });
+			return users;
+		},
+		user: async (parent, { _id }) => {
+			const user = User.findOne({ _id });
+			return user;
+		},
 
     },
     Mutation: {
@@ -40,6 +47,8 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+        // save book
+        // remove book
     }
 };
 module.exports = resolvers;
