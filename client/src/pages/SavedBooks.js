@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+//import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 // import required libraries
 import { useQuery, useMutation } from "@apollo/client";
@@ -11,7 +11,7 @@ import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(QUERY_ME);
-	const [removeBook, { error }] = useMutation(REMOVE_BOOK);
+	const [removeBook] = useMutation(REMOVE_BOOK);
   
   // Instead, use the useQuery() Hook to execute the GET_ME query on load and save it to a variable named userData.
   const userData = data?.me || [];
@@ -68,6 +68,11 @@ const SavedBooks = () => {
     } catch (err) {
       console.error(err);
     }
+      // if data isn't here yet, say so
+  if (loading) {
+    return <h2>LOADING...</h2>;
+  }
+
   };
 
   // if data isn't here yet, say so
