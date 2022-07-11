@@ -3,14 +3,14 @@ import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap
 // import required libraries
 import { useQuery, useMutation } from "@apollo/client";
 
-import { QUERY_ME } from "../utils/queries";
+import { GET_ME } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
 //import { getMe, deleteBook } from '../utils/API';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
-  const { loading, data } = useQuery(QUERY_ME);
+  const { loading, data } = useQuery(GET_ME);
 	const [removeBook] = useMutation(REMOVE_BOOK);
   
   // Instead, use the useQuery() Hook to execute the GET_ME query on load and save it to a variable named userData.
