@@ -1,7 +1,8 @@
+// Type definitions, or TypeDefs for short, involves literally defining every piece of data that the client can expect to work with through a query or mutation.
 // import the gql tagged template function
 
 const { gql } = require("apollo-server-express");
-
+// me: Which returns a User type.
 const typeDefs = gql`
 
     type Query {
